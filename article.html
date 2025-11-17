@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merta Pharma News</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* تنسيقات إضافية لصفحة المقال */
+      .article-container {
+        max-width: 800px; /* عرض مناسب للمقالات */
+        margin: 40px auto;
+        padding: 20px;
+        background: var(--card); /* Default background (overridden below) */
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow); /* Added shadow for consistency */
+      }
+      .article-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: contain; /* يجعل الصورة كاملة ظاهرة */
+        border-radius: 14px;
+        margin-bottom: 20px;
+        border: none; /* << تم التغيير هنا لإزالة الحدود */
+        display: block;
+        background-color: #f6dcb7; /* لون للمساحات الفارغة */
+      }
+      .article-content {
+        line-height: 1.8; /* Slightly more spacing for readability */
+      }
+      /* Default dark theme styles for content from editor */
+      .article-content h1,
+      .article-content h2,
+      .article-content h3,
+      .article-content h4,
+      .article-content h5,
+      .article-content h6 {
+        color: var(--brand-2);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        line-height: 1.3;
+        font-weight: 700;
+      }
+      .article-content h1 {
+        font-size: 2rem;
+      }
+      .article-content h2 {
+        font-size: 1.8rem;
+      }
+      .article-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .article-content strong {
+        color: var(--brand);
+        font-weight: 700;
+      }
+      .article-content ul,
+      .article-content ol {
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+        padding-inline-start: 30px;
+      }
+      .article-content li {
+        margin-bottom: 0.4em;
+      }
+      .article-content p {
+        margin-bottom: 1em; /* Add space between paragraphs */
+      }
+      .article-content blockquote {
+        border-inline-start: 4px solid var(--brand);
+        padding-inline-start: 15px;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        margin-block: 1em;
+        color: var(--muted);
+        font-style: italic;
+      }
+      .article-content pre,
+      .article-content code {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        padding: 2px 5px;
+        font-family: monospace;
+      }
+      .article-content pre {
+        padding: 10px;
+        overflow-x: auto;
+      }
+
+      /* ===== Article Light Theme Override ===== */
+      .article-container {
+        background-color: #f6dcb7; /* << اللون الجديد لخلفية المقال */
+        color: #1a1a1a; /* لون النص الأساسي (أسود داكن) */
+      }
+
+      /* تأكد أن العناوين داخل المقال داكنة */
+      .article-container h1, /* يشمل #articleTitle */
+      .article-container h2,
+      .article-container h3,
+      .article-container h4,
+      .article-container h5,
+      .article-container h6 {
+        color: #2c2c2c; /* رمادي داكن جداً للعناوين */
+      }
+      /* العنوان الرئيسي (#articleTitle) يجب أن يكون داكناً أيضًا */
+      #articleTitle {
+        color: #2c2c2c;
+      }
+
+      /* تأكد أن اللينكات داخل المقال واضحة على الخلفية الجديدة */
+      .article-content a {
+        color: #004a80; /* أزرق داكن قليلاً لتباين أفضل */
+        text-decoration: underline;
+      }
+      .article-content a:hover {
+        color: #002744; /* أزرق أغمق عند المرور */
+      }
+
+      /* تأكد أن النص البولد داكن */
+      .article-content strong {
+        color: #1a1a1a; /* أسود داكن */
+        font-weight: bold;
+      }
+
+      /* تأكد أن نصوص القوائم داكنة */
+      .article-content ul,
+      .article-content ol {
+        color: #1a1a1a; /* أسود داكن */
+      }
+      /* تنسيق الاقتباسات على الخلفية الجديدة */
+      .article-content blockquote {
+        border-inline-start: 4px solid #d3bfa1; /* لون حدود متناسب */
+        color: #4d4d4d; /* رمادي داكن لنص الاقتباس */
+      }
+      /* تنسيق الأكواد على الخلفية الجديدة */
+      .article-content pre,
+      .article-content code {
+        background-color: #ede2c9; /* خلفية متناسبة */
+        color: #333333; /* نص داكن */
+        border: 1px solid #d3bfa1; /* حدود متناسبة */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="article-container">
+      <h1 id="articleTitle">جاري تحميل المقال...</h1>
+      <img
+        src=""
+        alt=""
+        id="articleImage"
+        class="article-image"
+        style="display: none"
+      />
+      <div id="articleContent"></div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="common.js"></script>
+    <script src="article.js"></script>
+  </body>
+</html>

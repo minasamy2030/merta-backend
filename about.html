@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Merta Pharma</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* تنسيقات إضافية لصفحة "عن الشركة" */
+      .page-content {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        max-width: 900px; /* عرض مناسب للمحتوى النصي */
+        margin: 40px auto; /* Added margin-top/bottom */
+        padding: 30px; /* Increased padding */
+        border-radius: var(--radius);
+        /* ===== Light Theme Override for Content Area ===== */
+        background-color: #f6dcb7; /* << لون الخلفية الفاتح */
+        color: #000000; /* << لون النص الأساسي (أسود) */
+        box-shadow: var(--shadow); /* Keep shadow for definition */
+      }
+
+      .about-page-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+        margin-bottom: 30px;
+        background-size: contain; /* يجعل الصورة كاملة ظاهرة */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #f6dcb7; /* << نفس لون خلفية المحتوى للمساحات الفارغة */
+        border: none; /* << إزالة الحدود */
+        display: block;
+      }
+
+      /* تنسيق القيم (chips) على الخلفية الفاتحة */
+      .values {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        border: 1px solid rgba(0, 0, 0, 0.1); /* حدود أغمق */
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 14px;
+        color: #333333; /* لون نص أغمق للـ chips */
+        background: rgba(0, 0, 0, 0.04); /* خلفية رمادية فاتحة جداً */
+      }
+
+      /* تنسيق مخرجات المحرر المتقدم في هذه الصفحة (على خلفية فاتحة) */
+      #aboutSub {
+        line-height: 1.8; /* لسهولة القراءة */
+        color: #000000; /* << تأكيد أن النص داخل المحرر أسود */
+      }
+      #aboutSub h1,
+      #aboutSub h2,
+      #aboutSub h3,
+      #aboutSub h4,
+      #aboutSub h5,
+      #aboutSub h6 {
+        color: #000000; /* << العناوين الفرعية بالأسود */
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+        line-height: 1.3;
+        font-weight: 700;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 0.3em;
+      }
+      #aboutSub h2 {
+        font-size: 1.8rem;
+      }
+      #aboutSub h3 {
+        font-size: 1.5rem;
+      }
+
+      #aboutSub strong {
+        color: #000000; /* << البولد بالأسود */
+        font-weight: bold;
+      }
+      #aboutSub ul,
+      #aboutSub ol {
+        margin-top: 0.5em;
+        margin-bottom: 1em;
+        padding-inline-start: 30px;
+        color: #000000; /* << نصوص القوائم بالأسود */
+      }
+      #aboutSub li {
+        margin-bottom: 0.4em;
+      }
+      #aboutSub p {
+        margin-bottom: 1em;
+        color: #000000; /* << تأكيد أن البرجرافات سوداء */
+      }
+      #aboutSub a {
+        color: #004a80;
+        text-decoration: underline;
+      }
+      #aboutSub a:hover {
+        color: #002744;
+      }
+      #aboutSub blockquote {
+        border-inline-start: 4px solid #dddddd;
+        color: #555555;
+      }
+      #aboutSub pre,
+      #aboutSub code {
+        background-color: #f0f0f0;
+        color: #333333;
+        border: 1px solid #e0e0e0;
+      }
+      /* تنسيق العنوان الرئيسي للصفحة (H1) ليكون أسودًا */
+      #aboutTitle {
+        color: #000000; /* << العنوان الرئيسي بالأسود */
+        font-size: clamp(32px, 5vw, 54px);
+        font-weight: 900;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main class="container page-content">
+      <h1 id="aboutTitle">...</h1>
+      <div class="about-page-image" id="about-img-div"></div>
+      <div id="aboutSub">...</div>
+      <div class="values">
+        <span class="chip" id="chip1">...</span>
+        <span class="chip" id="chip2">...</span>
+        <span class="chip" id="chip3">...</span>
+        <span class="chip" id="chip4">...</span>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="common.js"></script>
+    <script src="about.js"></script>
+  </body>
+</html>

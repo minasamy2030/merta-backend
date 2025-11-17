@@ -1,0 +1,569 @@
+:root {
+  /* لوحة مستوحاة من ألوان الشعار (بدون استخدام صورة الشعار) */
+  --bg: #0b0b0b; /* خلفية داكنة */
+  --card: #151515; /* بطاقات داكنة */
+  --muted: #b3b3b3; /* نص ثانوي رمادي */
+  --text: #f1f1f1; /* نص أساسي فاتح */
+  --brand: #ff8a00; /* برتقالي أساسي */
+  --brand-2: #fbaf3b; /* برتقالي أفتح للتدرجات */
+  --accent: rgba(255, 138, 0, 0.35); /* حدود/وهج خفيف */
+  --slate: #8f8f8f; /* رمادي وسيط */
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.25);
+  --container: 1200px;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Cairo", "Tajawal",
+    sans-serif;
+  background: radial-gradient(
+      1200px 600px at 80% -10%,
+      rgba(255, 138, 0, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 500px at -10% 0%,
+      rgba(251, 175, 59, 0.1) 0%,
+      transparent 60%
+    ),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ====== Navbar ====== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 14px;
+}
+
+/* ====== Logo ====== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  color: var(--text);
+}
+.logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+.logo-text {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Tajawal", sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-links ul {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-links a {
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #eaeaea;
+  display: block;
+}
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-links a.active {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 138, 0, 0.16),
+    rgba(251, 175, 59, 0.12)
+  );
+  border: 1px solid rgba(255, 138, 0, 0.35);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+  border: 1px solid transparent;
+/* ==== Fix Hover Orange For All Buttons ==== */
+.btn:hover,
+.btn-secondary:hover,
+.btn-primary:hover {
+  background: var(--brand-2) !important; /* اللون البرتقاني */
+  color: #000 !important; /* نص أسود */
+  border-color: var(--brand-2) !important;
+  transition: 0.25s ease;
+}
+
+/* علشان نخلي البوتوم اللي ثابت برتقاني يرجع يبقى عادي */
+.btn-primary,
+.btn-secondary {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--brand-2);
+}
+
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #1a1205;
+  box-shadow: 0 8px 18px rgba(255, 138, 0, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(255, 138, 0, 0.35);
+}
+.btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f3f3f3;
+}
+.btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.btn-lang {
+  font-weight: bold;
+  border: 1px solid var(--brand);
+  background: rgba(255, 138, 0, 0.1);
+  color: var(--brand-2);
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.btn-lang:hover {
+  background: rgba(255, 138, 0, 0.2);
+  color: var(--brand-2);
+  border-color: var(--brand);
+}
+
+/* Burger */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 5px;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #eaeaea;
+  border-radius: 2px;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .nav-links {
+    position: fixed;
+    inset-inline: 0;
+    top: 61px;
+    background: rgba(12, 12, 12, 0.96);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 14px 20px;
+    display: none;
+    height: calc(100vh - 61px);
+    overflow-y: auto;
+  }
+  .nav-links.open { display: block; }
+  .nav-links ul { flex-direction: column; align-items: stretch; }
+  .menu-toggle { display: flex; }
+  .btn-hide-sm { display: none; }
+  .logo-text { display: none; }
+  .logo-img { height: 36px; }
+}
+
+/* ====== Hero ====== */
+.hero { position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient( 900px 400px at 10% 20%, rgba(255, 138, 0, 0.18), transparent 60% ), radial-gradient( 700px 360px at 90% 20%, rgba(251, 175, 59, 0.12), transparent 65% ); pointer-events: none; }
+.hero .container { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 28px; padding-block: 64px; }
+.hero h1 { font-size: clamp(32px, 5vw, 54px); margin: 0 0 10px; font-weight: 900; letter-spacing: 0.2px; }
+#heroSubtitle { margin: 0 0 22px; color: var(--muted); font-size: 1.1rem; }
+#heroSubtitle p { margin-bottom: 0.5em; }
+.hero-cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.hero-card { background: linear-gradient( 180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015) ); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+.hero-illus { aspect-ratio: 4/3; border-radius: 14px; background-image: linear-gradient( 135deg, rgba(255, 138, 0, 0.25), rgba(251, 175, 59, 0.2) ); background-size: cover; background-position: center; border: 1px solid rgba(255, 255, 255, 0.08); }
+@media (max-width: 900px) { .hero .container { grid-template-columns: 1fr; padding-block: 40px; } }
+
+/* ====== About Brief (on Homepage) ====== */
+.about-brief { padding-block: 36px; }
+.about-card { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; background: linear-gradient( 180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015) ); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+.about-brief h2 { margin-top: 0; }
+#aboutSub { color: var(--muted); } /* Target the div for About content */
+#aboutSub p { margin-bottom: 0.5em; }
+.values { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; margin-bottom: 10px;}
+.chip { border: 1px solid rgba(255, 255, 255, 0.12); padding: 6px 10px; border-radius: 999px; font-size: 14px; color: #fff3e0; background: rgba(255, 138, 0, 0.08); }
+.about-img { aspect-ratio: 4/3; border-radius: 14px; background-size: cover; background-position: center; border: 1px solid rgba(255, 255, 255, 0.08); }
+@media (max-width: 900px) { .about-card { grid-template-columns: 1fr; } }
+
+/* ====== News Section (Homepage & Listing Page) ====== */
+.news { padding-block: 40px; }
+.news h2 { /* Title above news grid */
+   text-align: center;
+   margin-bottom: 30px;
+   font-size: clamp(28px, 4vw, 42px);
+   color: var(--brand-2);
+}
+.news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.news-card { background: linear-gradient( 180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015) ); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.news-card img { width: 100%; height: 200px; object-fit: contain; /* contain image */ background-color: #000; display: block; }
+.news-card h3 { margin: 14px 14px 6px; }
+.news-card-sub { margin: 0 14px 10px; color: var(--muted); }
+.news-card-sub p { margin-bottom: 0.5em; }
+.news-card a { margin: 12px 14px 16px; font-weight: 700; color: #ffd199; display: block; /* Make link easier to click */ margin-top: auto; /* Push link to bottom if card height varies */}
+@media (max-width: 980px) { .news-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .news-grid { grid-template-columns: 1fr; } }
+
+/* ====== Footer ====== */
+.footer { padding-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 18px; background: linear-gradient( 180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015) ); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius); padding: 24px; }
+.footer h3,.footer h4 { margin-top: 0; margin-bottom: 1rem; color: #fff;}
+.footer p,.footer li { color: #d0d0d0; font-size: 0.95rem;}
+.footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.footer a { color: #d0d0d0; transition: color 0.2s;}
+.footer a:hover { color: var(--brand-2);}
+.btn-report { display: inline-block; margin-top: 8px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.2); color: #ffe8d1; }
+.btn-report:hover { background: rgba(255,255,255,0.1);}
+.footer-bottom { display: flex; flex-direction: column; gap: 6px; align-items: center; justify-content: center; padding: 16px; color: #aaa; font-size: 0.9rem;}
+.footer-bottom .disclaimer { font-size: 0.8rem; margin-top: 0.5rem; max-width: 800px; margin: 0.5rem auto 0 auto; text-align: center;}
+@media (max-width: 980px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* Utils */
+.sp-32 { height: 32px; }
+
+/* ====== Arabic Logo Font ====== */
+html[dir="rtl"] .logo-text { text-transform: none; letter-spacing: normal; font-family: "Cairo", "Tajawal", system-ui, sans-serif; }
+
+/* ====== Rich Text Editor Output Styling ====== */
+#heroSubtitle h2, #aboutSub h2, .news-card-sub h2, #heroSubtitle h3, #aboutSub h3, .news-card-sub h3 { color: var(--brand-2); font-weight: 700; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.3; }
+#heroSubtitle h2, #aboutSub h2, .news-card-sub h2 { font-size: 1.8rem; }
+#heroSubtitle h3, #aboutSub h3, .news-card-sub h3 { font-size: 1.5rem; }
+#heroSubtitle strong, #aboutSub strong, .news-card-sub strong { color: var(--brand); font-weight: 700; }
+#heroSubtitle ul, #heroSubtitle ol, #aboutSub ul, #aboutSub ol, .news-card-sub ul, .news-card-sub ol { margin-top: 0.5em; margin-bottom: 1em; padding-inline-start: 30px; }
+#heroSubtitle li, #aboutSub li, .news-card-sub li { margin-bottom: 0.4em; }
+
+/* ====== Specific Font Sizes (Overriding Rich Text defaults if needed) ====== */
+/* About Page Title (H1) */
+#aboutTitle { font-size: clamp(32px, 5vw, 54px); font-weight: 900; margin-bottom: 20px;}
+/* About Page Content (Div containing rich text) */
+#aboutSub { font-size: 1.1rem; }
+/* News Card Title (H3) */
+.news-card h3 { font-size: 1.5rem; font-weight: 700; margin-top: 14px; }
+/* News Card Content (Div containing rich text) */
+.news-card-sub { font-size: 0.95rem; }
+/* ===== RESET: خلي كل الأزرار مش برتقاني ثابت ===== */
+.btn,
+.btn-primary,
+.btn-secondary {
+  background: transparent !important;   /* يشيل أي خلفية قديمة (حتى لو كانت جريدينت) */
+  color: #fff !important;
+  border: 1px solid var(--brand-2) !important;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* ===== HOVER: لما أعدي بالماوس يتحول برتقاني ===== */
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+  background: var(--brand-2) !important;
+  border-color: var(--brand-2) !important;
+  color: #000 !important;
+}
+/* ===== Home products carousel (index) ===== */
+.home-products {
+  padding: 40px 0;
+}
+
+.home-products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.home-products-header h2 {
+  margin: 0;
+}
+
+.home-products-more {
+  font-size: 0.9rem;
+}
+
+.home-products-scroller {
+  position: relative;
+}
+
+.home-products-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 6px 4px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.home-products-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.home-products-track::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.home-product-card {
+  scroll-snap-align: start;
+  min-width: 260px;
+  max-width: 260px;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.home-product-thumb img {
+  width: 100%;
+  height: 240px;   /* أو 260 حسب الظهر */
+ object-fit: contain;
+  background: transparent;   /* بدون خلفية */
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-product-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.home-product-body h3 {
+  margin: 0 0 2px;
+  font-size: 1.2rem;
+}
+
+.home-product-short {
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-height: 3.2em;
+  overflow: hidden;
+}
+
+.home-product-more {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-2);
+}
+
+/* arrows */
+.home-products-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.home-products-arrow.prev {
+  inset-inline-start: -6px;
+}
+
+.home-products-arrow.next {
+  inset-inline-end: -6px;
+}
+
+@media (max-width: 768px) {
+  .home-product-card {
+    min-width: 340px;
+    max-width: 340px;
+  }
+}
+/* :::::::::::::::::::::::::::: المنتج — الشكل الأساسي :::::::::::::::::::::::::::: */
+.product-card-base {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+.product-card-base .thumb img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.product-card-base .body {
+  padding: 14px 16px;
+}
+
+.product-card-base .body h3 {
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.product-card-base .body p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* :::::::::::::::::::::::::::: نسخة الهوم — أكبر :::::::::::::::::::::::::::: */
+.product-card-home {
+  min-width: 340px;
+  max-width: 340px;
+}
+
+.product-card-home .thumb img {
+  height: 260px !important;
+}
+
+.product-card-home .body h3 {
+  font-size: 1.25rem;
+}
+
+.product-card-home .body p {
+  font-size: 1.05rem;
+}
+
+/* :::::::::::::::::::::::::::: سلايدر الهوم :::::::::::::::::::::::::::: */
+.home-products {
+  padding: 40px 0;
+}
+
+.home-products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.home-products-track {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 6px 4px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.home-products-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.home-products-track::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255,255,255,0.25);
+}
+
+.home-products-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.home-products-arrow.prev {
+  inset-inline-start: -6px;
+}
+
+.home-products-arrow.next {
+  inset-inline-end: -6px;
+}
+
+

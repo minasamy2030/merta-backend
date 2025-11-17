@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merta Pharma</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div>
+          <div class="hero-card">
+            <h1 id="heroTitle">...جاري التحميل</h1>
+            <div id="heroSubtitle">...</div>
+
+            <div class="hero-cta">
+              <a href="rnd.html" class="btn btn-primary" id="heroBtn1">...</a>
+              <a href="products.html#area-grid-container" class="btn btn-secondary" id="heroBtn2">...</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-illus" id="hero-image-div" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ===== HOME PRODUCTS (تحت الهيرو مباشرة) ===== -->
+    <section class="home-products" id="products">
+      <div class="container">
+        <div class="home-products-header">
+          <h2 id="homeProductsTitle">...</h2>
+          <a href="products.html" class="btn btn-secondary home-products-more" id="homeProductsMore">...</a>
+        </div>
+
+        <div class="home-products-scroller">
+          <button class="home-products-arrow prev" id="homeProductsPrev">‹</button>
+
+          <div class="home-products-track" id="homeProductsTrack">
+            <!-- يتم ملؤه من home-products.js -->
+          </div>
+
+          <button class="home-products-arrow next" id="homeProductsNext">›</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about-brief" id="about">
+      <div class="container">
+        <div class="about-card">
+          <div>
+            <h2 id="aboutTitle">...</h2>
+            <div id="aboutSub">...</div>
+
+            <div class="values">
+              <span class="chip" id="chip1">...</span>
+              <span class="chip" id="chip2">...</span>
+              <span class="chip" id="chip3">...</span>
+              <span class="chip" id="chip4">...</span>
+            </div>
+
+            <div class="sp-32"></div>
+            <a href="about.html" class="btn btn-secondary" id="aboutBtn">...</a>
+          </div>
+
+          <div class="about-img" id="about-img-div" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWS ===== -->
+    <section class="news" id="news">
+      <div class="container">
+        <h2 style="margin-top: 0" id="newsTitle">...</h2>
+        <div class="news-grid" id="news-grid-container"></div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="common.js"></script>
+    <script src="script.js"></script>
+    <script src="home-products.js"></script>
+  </body>
+</html>
